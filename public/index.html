@@ -1,1 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHUMTAI JAN SEVA</title>
 
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f4f7f5;
+  color:#17231c;
+}
+
+header{
+  background:linear-gradient(135deg,#075e3b,#0b8f58);
+  color:white;
+  padding:18px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.logo small{
+  display:block;
+  font-size:11px;
+  font-weight:normal;
+  opacity:.9;
+  margin-top:3px;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.toggle{
+  background:white;
+  color:#075e3b;
+  padding:9px 15px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+.hero{
+  background:linear-gradient(135deg,#e5f7ed,#ffffff);
+  padding:55px 5%;
+  text-align:center;
+}
+
+.hero h1{
+  color:#075e3b;
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:750px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1150px;
+  margin:35px auto;
+  padding:0 18px;
+}
+
+.section-title{
+  text-align:center;
+  color:#075e3b;
+  margin-bottom:25px;
+  font-size:30px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:white;
+  padding:24px 18px;
+  border-radius:14px;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.card h3{
+  color:#075e3b;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#555;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.report{
+  background:white;
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 3px 18px rgba(0,0,0,.1);
+  margin-top:40px;
+}
+
+label{
+  display:block;
+  margin:14px 0 7px;
+  font-weight:bold;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccd6cf;
+  border-radius:8px;
+  font-size:15px;
+  background:white;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.submit{
+  margin-top:20px;
+  background:#087b4b;
+  color:white;
+  padding:14px 22px;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+  width:100%;
+}
+
+.submit:hover{
+  background:#055c38;
+}
+
+.result{
+  margin-top:20px;
+  padding:18px;
+  background:#e8f8ef;
+  border-left:5px solid #087b4b;
+  border-radius:8px;
+  display:none;
+}
+
+.status-box{
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
+  margin-top:40px;
+}
+
+.status-row{
+  display:flex;
+  gap:10px;
+}
+
+.status-row input{
+  flex:1;
+}
+
+.status-row button{
+  background:#075e3b;
+  color:white;
+  padding:0 20px;
+  border-radius:8px;
+}
+
+.status-result{
+  margin-top:18px;
+  padding:15px;
+  border-radius:8px;
+  background:#f0f7f3;
+  display:none;
+}
+
+.emergency{
+  margin-top:40px;
+  background:#fff4f4;
+  border:1px solid #ffd1d1;
+  border-radius:14px;
+  padding:25px;
+}
+
+.emergency h2{
+  color:#b42318;
+  margin-bottom:18px;
+  text-align:center;
+}
+
+.emergency-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.emergency a{
+  display:block;
+  text-decoration:none;
+  background:white;
+  color:#222;
+  padding:17px;
+  border-radius:9px;
+  text-align:center;
+  font-weight:bold;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.emergency a span{
+  display:block;
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.notice{
+  margin-top:25px;
+  background:#fff8df;
+  border-left:5px solid #e6a700;
+  padding:16px;
+  border-radius:7px;
+  line-height:1.5;
+}
+
+footer{
+  margin-top:50px;
+  background:#063d29;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+  line-height:1.7;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .report{
+    padding:20px;
+  }
+
+  .status-row{
+    flex-direction:column;
+  }
+
+  .status-row button{
+    padding:13px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      KHUMTAI JAN SEVA
+      <small id="navSub">Public Service & Grievance Portal</small>
+    </div>
+
+    <button class="toggle" onclick="toggleLanguage()" id="languageBtn">
+      অসমীয়া
+    </button>
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <h1 id="heroTitle">KHUMTAI JAN SEVA</h1>
+
+  <p id="heroText">
+    A public service and grievance portal for the people of Khumtai Constituency.
+    Report problems affecting your community and check the status of your complaint.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+  <h2 class="section-title" id="servicesTitle">
+    Report a Public Problem
+  </h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🧹</div>
+      <h3 id="cleanTitle">Cleanliness</h3>
+      <p id="cleanText">
+        Report garbage, unhygienic public places or sanitation problems.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3 id="waterTitle">Drinking Water</h3>
+      <p id="waterText">
+        Report problems with drinking water supply or public water facilities.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛣️</div>
+      <h3 id="roadTitle">Road Condition</h3>
+      <p id="roadText">
+        Report damaged roads, potholes or unsafe roads.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏫</div>
+      <h3 id="schoolTitle">School</h3>
+      <p id="schoolText">
+        Report problems affecting schools and students.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚨</div>
+      <h3 id="crimeTitle">Crime & Safety</h3>
+      <p id="crimeText">
+        Report public safety concerns and serious local issues.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📢</div>
+      <h3 id="otherTitle">Other Public Issues</h3>
+      <p id="otherText">
+        Report any other issue causing public inconvenience.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="report">
+
+    <h2 id="formTitle">Submit a Complaint</h2>
+
+    <label id="nameLabel">Your Name</label>
+    <input id="name" type="text" placeholder="Enter your name">
+
+    <label id="villageLabel">Village / Locality</label>
+    <input id="village" type="text" placeholder="Enter village or locality">
+
+    <label id="categoryLabel">Problem Category</label>
+
+    <select id="category">
+
+      <option value="">Select a category</option>
+      <option value="Cleanliness">Cleanliness</option>
+      <option value="Drinking Water">Drinking Water</option>
+      <option value="Road Condition">Road Condition</option>
+      <option value="School">School</option>
+      <option value="Crime & Safety">Crime & Safety</option>
+      <option value="Other Public Issue">Other Public Issue</option>
+
+    </select>
+
+    <label id="descriptionLabel">Describe the Problem</label>
+
+    <textarea
+      id="description"
+      placeholder="Describe the problem clearly..."
+    ></textarea>
+
+    <label id="locationLabel">Location / Landmark</label>
+
+    <input
+      id="location"
+      type="text"
+      placeholder="Enter the location or nearby landmark"
+    >
+
+    <button class="submit" onclick="submitComplaint()" id="submitBtn">
+      Submit Complaint
+    </button>
+
+    <div class="result" id="complaintResult"></div>
+
+  </div>
+
+
+  <div class="status-box">
+
+    <h2 id="statusTitle">Check Complaint Status</h2>
+
+    <p id="statusText">
+      Enter your Complaint ID to check its current status.
+    </p>
+
+    <div class="status-row">
+
+      <input
+        id="statusId"
+        type="text"
+        placeholder="Example: KJS-2026-12345"
+      >
+
+      <button onclick="checkStatus()" id="statusBtn">
+        Check
+      </button>
+
+    </div>
+
+    <div class="status-result" id="statusResult"></div>
+
+  </div>
+
+
+  <div class="emergency">
+
+    <h2 id="emergencyTitle">Emergency Services</h2>
+
+    <div class="emergency-grid">
+
+      <a href="tel:112">
+        <span>🚨</span>
+        <strong>Police / Emergency</strong><br>
+        112
+      </a>
+
+      <a href="tel:108">
+        <span>🚑</span>
+        <strong>Ambulance</strong><br>
+        108
+      </a>
+
+      <a href="tel:101">
+        <span>🚒</span>
+        <strong>Fire Service</strong><br>
+        101
+      </a>
+
+      <a href="tel:1098">
+        <span>👧</span>
+        <strong>Child Helpline</strong><br>
+        1098
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="notice" id="notice">
+    <strong>Important:</strong>
+    This portal is intended for reporting public problems and grievances.
+    For immediate emergencies, contact the appropriate emergency service.
+  </div>
+
+</div>
+
+
+<footer>
+
+  <strong>KHUMTAI JAN SEVA</strong>
+
+  <br>
+
+  <span id="footerText">
+    Serving the people of Khumtai Constituency
+  </span>
+
+  <br><br>
+
+  © 2026 KHUMTAI JAN SEVA
+
+</footer>
+
+
+<script>
+
+let currentLanguage = "en";
+
+
+const translations = {
+
+  as: {
+
+    navSub:"জনসেৱা আৰু অভিযোগ প'ৰ্টেল",
+
+    languageBtn:"English",
+
+    heroTitle:"খুমটাই জন সেৱা",
+
+    heroText:
+    "খুমটাই সমষ্টিৰ জনসাধাৰণৰ বাবে জনসেৱা আৰু অভিযোগ প'ৰ্টেল। আপোনাৰ অঞ্চলৰ জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা সমস্যা জনাওক আৰু আপোনাৰ অভিযোগৰ স্থিতি পৰীক্ষা কৰক।",
+
+    servicesTitle:"জনসাধাৰণৰ সমস্যা জনাওক",
+
+    cleanTitle:"পৰিষ্কাৰ-পৰিচ্ছন্নতা",
+    cleanText:"আৱৰ্জনা, অপৰিষ্কাৰ ৰাজহুৱা স্থান বা পৰিষ্কাৰ-পৰিচ্ছন্নতাৰ সমস্যা জনাওক।",
+
+    waterTitle:"খোৱাপানী",
+    waterText:"খোৱাপানীৰ যোগান বা ৰাজহুৱা পানীৰ সুবিধাৰ সমস্যা জনাওক।",
+
+    roadTitle:"ৰাস্তাৰ অৱস্থা",
+    roadText:"বেয়া ৰাস্তা, গাঁত বা বিপজ্জনক ৰাস্তাৰ সমস্যা জনাওক।",
+
+    schoolTitle:"বিদ্যালয়",
+    schoolText:"বিদ্যালয় আৰু ছাত্ৰ-ছাত্ৰীৰ সৈতে জড়িত সমস্যা জনাওক।",
+
+    crimeTitle:"অপৰাধ আৰু নিৰাপত্তা",
+    crimeText:"জনসাধাৰণৰ নিৰাপত্তাৰ সমস্যা আৰু গুৰুতৰ স্থানীয় বিষয় জনাওক।",
+
+    otherTitle:"অন্যান্য জনসাধাৰণৰ সমস্যা",
+    otherText:"জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা আন যিকোনো সমস্যা জনাওক।",
+
+    formTitle:"অভিযোগ দাখিল কৰক",
+
+    nameLabel:"আপোনাৰ নাম",
+    villageLabel:"গাঁও / অঞ্চল",
+    categoryLabel:"সমস্যাৰ শ্ৰেণী",
+    descriptionLabel:"সমস্যাটো বৰ্ণনা কৰক",
+    locationLabel:"স্থান / চিনাক্ত স্থান",
+
+    namePlaceholder:"আপোনাৰ নাম লিখক",
+    villagePlaceholder:"গাঁও বা অঞ্চলৰ নাম লিখক",
+    descriptionPlaceholder:"সমস্যাটো স্পষ্টভাৱে বৰ্ণনা কৰক...",
+    locationPlaceholder:"স্থান বা ওচৰৰ চিনাক্ত স্থান লিখক",
+
+    submitBtn:"অভিযোগ দাখিল কৰক",
+
+    statusTitle:"অভিযোগৰ স্থিতি পৰীক্ষা কৰক",
+    statusText:"আপোনাৰ অভিযোগৰ বৰ্তমান স্থিতি চাবলৈ Complaint ID লিখক।",
+
+    statusBtn:"পৰীক্ষা কৰক",
+
+    emergencyTitle:"জৰুৰীকালীন সেৱা",
+
+    notice:
+    "গুৰুত্বপূৰ্ণ: এই প'ৰ্টেলটো জনসাধাৰণৰ সমস্যা আৰু অভিযোগ জনোৱাৰ বাবে। জৰুৰী পৰিস্থিতিৰ বাবে উপযুক্ত জৰুৰীকালীন সেৱাৰ সৈতে যোগাযোগ কৰক।",
+
+    footerText:"খুমটাই সমষ্টিৰ জনসাধাৰণৰ সেৱাত"
+
+  }
+
+};
+
+
+function toggleLanguage(){
+
+  currentLanguage =
+  currentLanguage === "en" ? "as" : "en";
+
+  if(currentLanguage === "as"){
+
+    const t = translations.as;
+
+    Object.keys(t).forEach(id => {
+
+      const element = document.getElementById(id);
+
+      if(element){
+        element.textContent = t[id];
+      }
+
+    });
+
+    document.getElementById("name")
+      .placeholder = t.namePlaceholder;
+
+    document.getElementById("village")
+      .placeholder = t.villagePlaceholder;
+
+    document.getElementById("description")
+      .placeholder = t.descriptionPlaceholder;
+
+    document.getElementById("location")
+      .placeholder = t.locationPlaceholder;
+
+    document.getElementById("statusId")
+      .placeholder = "উদাহৰণ: KJS-2026-12345";
+
+ 
