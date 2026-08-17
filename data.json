@@ -1,0 +1,10 @@
+{
+  "reports": [],
+  "users": [
+    {
+      "username": "admin",
+      "password": "CHANGE-ME",
+      "role": "superadmin"
+    }
+  ]
+}
