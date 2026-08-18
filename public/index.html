@@ -10,7 +10,7 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
 }
 
 body{
@@ -29,16 +29,16 @@ header{
 }
 
 .nav{
-  max-width:1150px;
+  max-width:1100px;
   margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:12px;
 }
 
 .logo{
-  font-size:22px;
+  font-size:21px;
   font-weight:bold;
 }
 
@@ -46,16 +46,12 @@ header{
   display:block;
   font-size:11px;
   font-weight:normal;
-  opacity:.9;
   margin-top:3px;
 }
 
-button{
+#languageBtn{
   border:0;
   cursor:pointer;
-}
-
-.toggle{
   background:white;
   color:#075e3b;
   padding:9px 15px;
@@ -64,93 +60,109 @@ button{
 }
 
 .hero{
-  background:linear-gradient(135deg,#e5f7ed,#ffffff);
-  padding:55px 5%;
+  background:white;
+  padding:55px 20px;
   text-align:center;
 }
 
 .hero h1{
   color:#075e3b;
-  font-size:40px;
-  margin-bottom:12px;
+  font-size:36px;
+  margin-bottom:15px;
 }
 
 .hero p{
   max-width:750px;
   margin:auto;
-  font-size:18px;
-  line-height:1.6;
+  line-height:1.7;
+  color:#555;
+}
+
+.hero button{
+  margin-top:25px;
+  background:#075e3b;
+  color:white;
+  border:0;
+  padding:13px 22px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
 }
 
 .container{
-  max-width:1150px;
-  margin:35px auto;
-  padding:0 18px;
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px;
 }
 
 .section-title{
   text-align:center;
   color:#075e3b;
   margin-bottom:25px;
-  font-size:30px;
+  font-size:28px;
 }
 
-.cards{
+.services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:18px;
 }
 
-.card{
+.service{
   background:white;
-  padding:24px 18px;
-  border-radius:14px;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
-  text-align:center;
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  cursor:pointer;
+  border:2px solid transparent;
   transition:.2s;
 }
 
-.card:hover{
+.service:hover{
   transform:translateY(-3px);
+  border-color:#0b8f58;
 }
 
-.icon{
-  font-size:38px;
+.service h3{
+  color:#075e3b;
   margin-bottom:10px;
 }
 
-.card h3{
-  color:#075e3b;
-  margin-bottom:8px;
-}
-
-.card p{
-  color:#555;
-  font-size:14px;
+.service p{
+  color:#666;
   line-height:1.5;
+  font-size:14px;
 }
 
 .report{
   background:white;
-  border-radius:16px;
+  margin-top:35px;
   padding:28px;
-  box-shadow:0 3px 18px rgba(0,0,0,.1);
-  margin-top:40px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.form-group{
+  margin-bottom:16px;
 }
 
 label{
   display:block;
-  margin:14px 0 7px;
+  margin-bottom:7px;
   font-weight:bold;
 }
 
 input,select,textarea{
   width:100%;
-  padding:13px;
-  border:1px solid #ccd6cf;
-  border-radius:8px;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:7px;
   font-size:15px;
-  background:white;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#075e3b;
 }
 
 textarea{
@@ -159,40 +171,41 @@ textarea{
 }
 
 .submit{
-  margin-top:20px;
-  background:#087b4b;
-  color:white;
-  padding:14px 22px;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:bold;
   width:100%;
+  padding:13px;
+  background:#075e3b;
+  color:white;
+  border:0;
+  border-radius:7px;
+  font-size:16px;
+  cursor:pointer;
 }
 
 .submit:hover{
-  background:#055c38;
+  background:#064b30;
 }
 
 .result{
-  margin-top:20px;
-  padding:18px;
-  background:#e8f8ef;
-  border-left:5px solid #087b4b;
-  border-radius:8px;
+  margin-top:15px;
+  padding:12px;
+  border-radius:7px;
+  background:#e8f6ee;
+  color:#075e3b;
   display:none;
 }
 
 .status-box{
   background:white;
-  padding:25px;
-  border-radius:14px;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
-  margin-top:40px;
+  margin-top:25px;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .status-row{
   display:flex;
   gap:10px;
+  margin-top:15px;
 }
 
 .status-row input{
@@ -200,104 +213,49 @@ textarea{
 }
 
 .status-row button{
+  padding:12px 20px;
   background:#075e3b;
   color:white;
-  padding:0 20px;
-  border-radius:8px;
+  border:0;
+  border-radius:7px;
+  cursor:pointer;
 }
 
 .status-result{
-  margin-top:18px;
-  padding:15px;
-  border-radius:8px;
-  background:#f0f7f3;
-  display:none;
+  margin-top:15px;
+  font-weight:bold;
 }
 
 .emergency{
-  margin-top:40px;
-  background:#fff4f4;
-  border:1px solid #ffd1d1;
-  border-radius:14px;
-  padding:25px;
-}
-
-.emergency h2{
-  color:#b42318;
-  margin-bottom:18px;
-  text-align:center;
-}
-
-.emergency-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-}
-
-.emergency a{
-  display:block;
-  text-decoration:none;
-  background:white;
-  color:#222;
-  padding:17px;
-  border-radius:9px;
-  text-align:center;
-  font-weight:bold;
-  box-shadow:0 2px 8px rgba(0,0,0,.07);
-}
-
-.emergency a span{
-  display:block;
-  font-size:28px;
-  margin-bottom:6px;
-}
-
-.notice{
   margin-top:25px;
-  background:#fff8df;
-  border-left:5px solid #e6a700;
-  padding:16px;
-  border-radius:7px;
-  line-height:1.5;
+  background:#fff3f3;
+  border-left:5px solid #d62828;
+  padding:20px;
+  border-radius:8px;
 }
 
 footer{
-  margin-top:50px;
-  background:#063d29;
+  margin-top:40px;
+  background:#075e3b;
   color:white;
   text-align:center;
-  padding:30px 15px;
-  line-height:1.7;
-}
-
-.hidden{
-  display:none;
+  padding:25px;
 }
 
 @media(max-width:600px){
+
   .hero h1{
-    font-size:30px;
+    font-size:28px;
   }
 
-  .hero p{
-    font-size:16px;
-  }
-
-  .report{
-    padding:20px;
+  .nav{
+    flex-direction:column;
   }
 
   .status-row{
     flex-direction:column;
   }
 
-  .status-row button{
-    padding:13px;
-  }
-
-  .logo{
-    font-size:18px;
-  }
 }
 </style>
 </head>
@@ -305,332 +263,650 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">
-      KHUMTAI JAN SEVA
-      <small id="navSub">Public Service & Grievance Portal</small>
-    </div>
 
-    <button class="toggle" onclick="toggleLanguage()" id="languageBtn">
-      অসমীয়া
-    </button>
-  </div>
+<div class="nav">
+
+<div class="logo">
+<span id="logoText">KHUMTAI JAN SEVA</span>
+<small id="logoSub">Public Service & Complaint Portal</small>
+</div>
+
+<button id="languageBtn" type="button" onclick="toggleLanguage()">
+অসমীয়া
+</button>
+
+</div>
+
 </header>
 
 
 <section class="hero">
 
-  <h1 id="heroTitle">KHUMTAI JAN SEVA</h1>
+<h1 id="heroTitle">KHUMTAI JAN SEVA</h1>
 
-  <p id="heroText">
-    A public service and grievance portal for the people of Khumtai Constituency.
-    Report problems affecting your community and check the status of your complaint.
-  </p>
+<p id="heroText">
+A public service portal for the people of Khumtai Constituency.
+Report cleanliness problems, drinking water issues, bad roads,
+school-related problems, crime and other public inconveniences.
+</p>
+
+<button type="button" onclick="goToReport()" id="heroBtn">
+Report a Problem
+</button>
 
 </section>
 
 
-<div class="container">
+<section class="container">
 
-  <h2 class="section-title" id="servicesTitle">
-    Report a Public Problem
-  </h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">🧹</div>
-      <h3 id="cleanTitle">Cleanliness</h3>
-      <p id="cleanText">
-        Report garbage, unhygienic public places or sanitation problems.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💧</div>
-      <h3 id="waterTitle">Drinking Water</h3>
-      <p id="waterText">
-        Report problems with drinking water supply or public water facilities.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🛣️</div>
-      <h3 id="roadTitle">Road Condition</h3>
-      <p id="roadText">
-        Report damaged roads, potholes or unsafe roads.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🏫</div>
-      <h3 id="schoolTitle">School</h3>
-      <p id="schoolText">
-        Report problems affecting schools and students.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🚨</div>
-      <h3 id="crimeTitle">Crime & Safety</h3>
-      <p id="crimeText">
-        Report public safety concerns and serious local issues.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📢</div>
-      <h3 id="otherTitle">Other Public Issues</h3>
-      <p id="otherText">
-        Report any other issue causing public inconvenience.
-      </p>
-    </div>
-
-  </div>
+<h2 class="section-title" id="servicesTitle">
+Public Problems
+</h2>
 
 
-  <div class="report">
-
-    <h2 id="formTitle">Submit a Complaint</h2>
-
-    <label id="nameLabel">Your Name</label>
-    <input id="name" type="text" placeholder="Enter your name">
-
-    <label id="villageLabel">Village / Locality</label>
-    <input id="village" type="text" placeholder="Enter village or locality">
-
-    <label id="categoryLabel">Problem Category</label>
-
-    <select id="category">
-
-      <option value="">Select a category</option>
-      <option value="Cleanliness">Cleanliness</option>
-      <option value="Drinking Water">Drinking Water</option>
-      <option value="Road Condition">Road Condition</option>
-      <option value="School">School</option>
-      <option value="Crime & Safety">Crime & Safety</option>
-      <option value="Other Public Issue">Other Public Issue</option>
-
-    </select>
-
-    <label id="descriptionLabel">Describe the Problem</label>
-
-    <textarea
-      id="description"
-      placeholder="Describe the problem clearly..."
-    ></textarea>
-
-    <label id="locationLabel">Location / Landmark</label>
-
-    <input
-      id="location"
-      type="text"
-      placeholder="Enter the location or nearby landmark"
-    >
-
-    <button class="submit" onclick="submitComplaint()" id="submitBtn">
-      Submit Complaint
-    </button>
-
-    <div class="result" id="complaintResult"></div>
-
-  </div>
+<div class="services">
 
 
-  <div class="status-box">
+<div class="service" onclick="selectCategory('Cleanliness')">
 
-    <h2 id="statusTitle">Check Complaint Status</h2>
+<h3 id="cleanTitle">Cleanliness</h3>
 
-    <p id="statusText">
-      Enter your Complaint ID to check its current status.
-    </p>
-
-    <div class="status-row">
-
-      <input
-        id="statusId"
-        type="text"
-        placeholder="Example: KJS-2026-12345"
-      >
-
-      <button onclick="checkStatus()" id="statusBtn">
-        Check
-      </button>
-
-    </div>
-
-    <div class="status-result" id="statusResult"></div>
-
-  </div>
-
-
-  <div class="emergency">
-
-    <h2 id="emergencyTitle">Emergency Services</h2>
-
-    <div class="emergency-grid">
-
-      <a href="tel:112">
-        <span>🚨</span>
-        <strong>Police / Emergency</strong><br>
-        112
-      </a>
-
-      <a href="tel:108">
-        <span>🚑</span>
-        <strong>Ambulance</strong><br>
-        108
-      </a>
-
-      <a href="tel:101">
-        <span>🚒</span>
-        <strong>Fire Service</strong><br>
-        101
-      </a>
-
-      <a href="tel:1098">
-        <span>👧</span>
-        <strong>Child Helpline</strong><br>
-        1098
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div class="notice" id="notice">
-    <strong>Important:</strong>
-    This portal is intended for reporting public problems and grievances.
-    For immediate emergencies, contact the appropriate emergency service.
-  </div>
+<p id="cleanText">
+Report garbage, dirty areas, drainage and sanitation problems.
+</p>
 
 </div>
 
 
+<div class="service" onclick="selectCategory('Drinking Water')">
+
+<h3 id="waterTitle">Drinking Water</h3>
+
+<p id="waterText">
+Report problems related to drinking water supply and availability.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Road Condition')">
+
+<h3 id="roadTitle">Road Condition</h3>
+
+<p id="roadText">
+Report damaged roads, potholes, bridges or dangerous road conditions.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('School')">
+
+<h3 id="schoolTitle">School</h3>
+
+<p id="schoolText">
+Report problems affecting schools and students.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Crime & Safety')">
+
+<h3 id="crimeTitle">Crime & Safety</h3>
+
+<p id="crimeText">
+Report public safety concerns and other serious local issues.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Other Public Issue')">
+
+<h3 id="otherTitle">Other Public Issue</h3>
+
+<p id="otherText">
+Report any other problem causing inconvenience to the public.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="report" id="report">
+
+<h2 id="formTitle">Submit a Complaint</h2>
+
+
+<div class="form-group">
+
+<label id="nameLabel" for="name">
+Your Name
+</label>
+
+<input
+id="name"
+type="text"
+placeholder="Enter your name">
+
+</div>
+
+
+<div class="form-group">
+
+<label id="villageLabel" for="village">
+Village / Locality
+</label>
+
+<input
+id="village"
+type="text"
+placeholder="Enter village or locality">
+
+</div>
+
+
+<div class="form-group">
+
+<label id="categoryLabel" for="category">
+Problem Category
+</label>
+
+<select id="category">
+
+<option value="">
+Select a category
+</option>
+
+<option value="Cleanliness">
+Cleanliness
+</option>
+
+<option value="Drinking Water">
+Drinking Water
+</option>
+
+<option value="Road Condition">
+Road Condition
+</option>
+
+<option value="School">
+School
+</option>
+
+<option value="Crime & Safety">
+Crime & Safety
+</option>
+
+<option value="Other Public Issue">
+Other Public Issue
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label id="descriptionLabel" for="description">
+Describe the Problem
+</label>
+
+<textarea
+id="description"
+placeholder="Describe the problem clearly">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label id="locationLabel" for="location">
+Location / Landmark
+</label>
+
+<input
+id="location"
+type="text"
+placeholder="Enter the location or nearby landmark">
+
+</div>
+
+
+<button
+class="submit"
+id="submitBtn"
+type="button"
+onclick="submitComplaint()">
+
+Submit Complaint
+
+</button>
+
+
+<div
+class="result"
+id="complaintResult">
+</div>
+
+
+</div>
+
+
+<div class="status-box">
+
+<h2 id="statusTitle">
+Check Complaint Status
+</h2>
+
+<p id="statusText">
+Enter your Complaint ID to check its current status.
+</p>
+
+
+<div class="status-row">
+
+<input
+id="statusId"
+type="text"
+placeholder="Example: KJS-2026-12345">
+
+
+<button
+type="button"
+onclick="checkStatus()"
+id="statusBtn">
+
+Check
+
+</button>
+
+</div>
+
+
+<div
+class="status-result"
+id="statusResult">
+</div>
+
+</div>
+
+
+<div class="emergency">
+
+<h3 id="emergencyTitle">
+Emergency Services
+</h3>
+
+<p id="emergencyText">
+For immediate danger or emergencies, contact the appropriate
+emergency service directly.
+</p>
+
+</div>
+
+
+</section>
+
+
 <footer>
 
-  <strong>KHUMTAI JAN SEVA</strong>
-
-  <br>
-
-  <span id="footerText">
-    Serving the people of Khumtai Constituency
-  </span>
-
-  <br><br>
-
-  © 2026 KHUMTAI JAN SEVA
+<p id="footerText">
+KHUMTAI JAN SEVA — Service for the people of Khumtai Constituency
+</p>
 
 </footer>
 
 
 <script>
 
-let currentLanguage = "en";
+let currentLanguage="en";
 
 
-const translations = {
+const translations={
 
-  as: {
+en:{
 
-    navSub:"জনসেৱা আৰু অভিযোগ প'ৰ্টেল",
+logoText:"KHUMTAI JAN SEVA",
 
-    languageBtn:"English",
+logoSub:"Public Service & Complaint Portal",
 
-    heroTitle:"খুমটাই জন সেৱা",
+languageBtn:"অসমীয়া",
 
-    heroText:
-    "খুমটাই সমষ্টিৰ জনসাধাৰণৰ বাবে জনসেৱা আৰু অভিযোগ প'ৰ্টেল। আপোনাৰ অঞ্চলৰ জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা সমস্যা জনাওক আৰু আপোনাৰ অভিযোগৰ স্থিতি পৰীক্ষা কৰক।",
+heroTitle:"KHUMTAI JAN SEVA",
 
-    servicesTitle:"জনসাধাৰণৰ সমস্যা জনাওক",
+heroText:"A public service portal for the people of Khumtai Constituency. Report cleanliness problems, drinking water issues, bad roads, school-related problems, crime and other public inconveniences.",
 
-    cleanTitle:"পৰিষ্কাৰ-পৰিচ্ছন্নতা",
-    cleanText:"আৱৰ্জনা, অপৰিষ্কাৰ ৰাজহুৱা স্থান বা পৰিষ্কাৰ-পৰিচ্ছন্নতাৰ সমস্যা জনাওক।",
+heroBtn:"Report a Problem",
 
-    waterTitle:"খোৱাপানী",
-    waterText:"খোৱাপানীৰ যোগান বা ৰাজহুৱা পানীৰ সুবিধাৰ সমস্যা জনাওক।",
+servicesTitle:"Public Problems",
 
-    roadTitle:"ৰাস্তাৰ অৱস্থা",
-    roadText:"বেয়া ৰাস্তা, গাঁত বা বিপজ্জনক ৰাস্তাৰ সমস্যা জনাওক।",
+cleanTitle:"Cleanliness",
 
-    schoolTitle:"বিদ্যালয়",
-    schoolText:"বিদ্যালয় আৰু ছাত্ৰ-ছাত্ৰীৰ সৈতে জড়িত সমস্যা জনাওক।",
+cleanText:"Report garbage, dirty areas, drainage and sanitation problems.",
 
-    crimeTitle:"অপৰাধ আৰু নিৰাপত্তা",
-    crimeText:"জনসাধাৰণৰ নিৰাপত্তাৰ সমস্যা আৰু গুৰুতৰ স্থানীয় বিষয় জনাওক।",
+waterTitle:"Drinking Water",
 
-    otherTitle:"অন্যান্য জনসাধাৰণৰ সমস্যা",
-    otherText:"জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা আন যিকোনো সমস্যা জনাওক।",
+waterText:"Report problems related to drinking water supply and availability.",
 
-    formTitle:"অভিযোগ দাখিল কৰক",
+roadTitle:"Road Condition",
 
-    nameLabel:"আপোনাৰ নাম",
-    villageLabel:"গাঁও / অঞ্চল",
-    categoryLabel:"সমস্যাৰ শ্ৰেণী",
-    descriptionLabel:"সমস্যাটো বৰ্ণনা কৰক",
-    locationLabel:"স্থান / চিনাক্ত স্থান",
+roadText:"Report damaged roads, potholes, bridges or dangerous road conditions.",
 
-    namePlaceholder:"আপোনাৰ নাম লিখক",
-    villagePlaceholder:"গাঁও বা অঞ্চলৰ নাম লিখক",
-    descriptionPlaceholder:"সমস্যাটো স্পষ্টভাৱে বৰ্ণনা কৰক...",
-    locationPlaceholder:"স্থান বা ওচৰৰ চিনাক্ত স্থান লিখক",
+schoolTitle:"School",
 
-    submitBtn:"অভিযোগ দাখিল কৰক",
+schoolText:"Report problems affecting schools and students.",
 
-    statusTitle:"অভিযোগৰ স্থিতি পৰীক্ষা কৰক",
-    statusText:"আপোনাৰ অভিযোগৰ বৰ্তমান স্থিতি চাবলৈ Complaint ID লিখক।",
+crimeTitle:"Crime & Safety",
 
-    statusBtn:"পৰীক্ষা কৰক",
+crimeText:"Report public safety concerns and other serious local issues.",
 
-    emergencyTitle:"জৰুৰীকালীন সেৱা",
+otherTitle:"Other Public Issue",
 
-    notice:
-    "গুৰুত্বপূৰ্ণ: এই প'ৰ্টেলটো জনসাধাৰণৰ সমস্যা আৰু অভিযোগ জনোৱাৰ বাবে। জৰুৰী পৰিস্থিতিৰ বাবে উপযুক্ত জৰুৰীকালীন সেৱাৰ সৈতে যোগাযোগ কৰক।",
+otherText:"Report any other problem causing inconvenience to the public.",
 
-    footerText:"খুমটাই সমষ্টিৰ জনসাধাৰণৰ সেৱাত"
+formTitle:"Submit a Complaint",
 
-  }
+nameLabel:"Your Name",
+
+villageLabel:"Village / Locality",
+
+categoryLabel:"Problem Category",
+
+descriptionLabel:"Describe the Problem",
+
+locationLabel:"Location / Landmark",
+
+submitBtn:"Submit Complaint",
+
+statusTitle:"Check Complaint Status",
+
+statusText:"Enter your Complaint ID to check its current status.",
+
+statusBtn:"Check",
+
+emergencyTitle:"Emergency Services",
+
+emergencyText:"For immediate danger or emergencies, contact the appropriate emergency service directly.",
+
+footerText:"KHUMTAI JAN SEVA — Service for the people of Khumtai Constituency",
+
+namePlaceholder:"Enter your name",
+
+villagePlaceholder:"Enter village or locality",
+
+descriptionPlaceholder:"Describe the problem clearly",
+
+locationPlaceholder:"Enter the location or nearby landmark",
+
+statusPlaceholder:"Example: KJS-2026-12345"
+
+},
+
+
+as:{
+
+logoText:"খুমটাই জন সেৱা",
+
+logoSub:"জনসেৱা আৰু অভিযোগ প'ৰ্টেল",
+
+languageBtn:"English",
+
+heroTitle:"খুমটাই জন সেৱা",
+
+heroText:"খুমটাই সমষ্টিৰ জনসাধাৰণৰ বাবে জনসেৱা প'ৰ্টেল। পৰিষ্কাৰ-পৰিচ্ছন্নতা, খোৱাপানী, ৰাস্তা, বিদ্যালয়, অপৰাধ আৰু অন্যান্য ৰাজহুৱা সমস্যাৰ বিষয়ে অভিযোগ দাখিল কৰক।",
+
+heroBtn:"সমস্যা জনাওক",
+
+servicesTitle:"জনসাধাৰণৰ সমস্যা",
+
+cleanTitle:"পৰিষ্কাৰ-পৰিচ্ছন্নতা",
+
+cleanText:"আৱৰ্জনা, লেতেৰা ঠাই, নলা-নৰ্দমা আৰু পৰিষ্কাৰ-পৰিচ্ছন্নতাৰ সমস্যা জনাওক।",
+
+waterTitle:"খোৱাপানী",
+
+waterText:"খোৱাপানীৰ যোগান বা উপলব্ধতাৰ সমস্যাৰ বিষয়ে জনাওক।",
+
+roadTitle:"ৰাস্তাৰ অৱস্থা",
+
+roadText:"বেয়া ৰাস্তা, গাঁত, দলং বা বিপদজনক পথৰ সমস্যাৰ বিষয়ে জনাওক।",
+
+schoolTitle:"বিদ্যালয়",
+
+schoolText:"বিদ্যালয় আৰু ছাত্ৰ-ছাত্ৰীৰ সৈতে জড়িত সমস্যাৰ বিষয়ে জনাওক।",
+
+crimeTitle:"অপৰাধ আৰু নিৰাপত্তা",
+
+crimeText:"জনসাধাৰণৰ নিৰাপত্তাৰ সমস্যা আৰু গুৰুত্বপূৰ্ণ স্থানীয় বিষয়ৰ বিষয়ে জনাওক।",
+
+otherTitle:"অন্যান্য ৰাজহুৱা সমস্যা",
+
+otherText:"জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা আন যিকোনো সমস্যাৰ বিষয়ে জনাওক।",
+
+formTitle:"অভিযোগ দাখিল কৰক",
+
+nameLabel:"আপোনাৰ নাম",
+
+villageLabel:"গাঁও / অঞ্চল",
+
+categoryLabel:"সমস্যাৰ শ্ৰেণী",
+
+descriptionLabel:"সমস্যাটো বৰ্ণনা কৰক",
+
+locationLabel:"স্থান / চিনাক্ত স্থান",
+
+submitBtn:"অভিযোগ দাখিল কৰক",
+
+statusTitle:"অভিযোগৰ স্থিতি পৰীক্ষা কৰক",
+
+statusText:"আপোনাৰ অভিযোগৰ বৰ্তমান স্থিতি চাবলৈ Complaint ID দিয়ক।",
+
+statusBtn:"পৰীক্ষা কৰক",
+
+emergencyTitle:"জৰুৰীকালীন সেৱা",
+
+emergencyText:"জৰুৰী বিপদ বা তৎকালীন পৰিস্থিতিৰ ক্ষেত্ৰত সংশ্লিষ্ট জৰুৰীকালীন সেৱাৰ সৈতে পোনপটীয়াকৈ যোগাযোগ কৰক।",
+
+footerText:"খুমটাই জন সেৱা — খুমটাই সমষ্টিৰ জনসাধাৰণৰ সেৱাত",
+
+namePlaceholder:"আপোনাৰ নাম লিখক",
+
+villagePlaceholder:"গাঁও বা অঞ্চলৰ নাম লিখক",
+
+descriptionPlaceholder:"সমস্যাটো স্পষ্টভাৱে বৰ্ণনা কৰক",
+
+locationPlaceholder:"স্থান বা ওচৰৰ চিনাক্ত স্থান লিখক",
+
+statusPlaceholder:"উদাহৰণ: KJS-2026-12345"
+
+}
 
 };
 
 
+function changeText(id,text){
+
+const element=document.getElementById(id);
+
+if(element){
+
+element.textContent=text;
+
+}
+
+}
+
+
 function toggleLanguage(){
 
-  currentLanguage =
-  currentLanguage === "en" ? "as" : "en";
+currentLanguage =
+currentLanguage==="en"
+? "as"
+: "en";
 
-  if(currentLanguage === "as"){
 
-    const t = translations.as;
+const t=translations[currentLanguage];
 
-    Object.keys(t).forEach(id => {
 
-      const element = document.getElementById(id);
+Object.keys(t).forEach(function(key){
 
-      if(element){
-        element.textContent = t[id];
-      }
+if(
+key!=="namePlaceholder" &&
+key!=="villagePlaceholder" &&
+key!=="descriptionPlaceholder" &&
+key!=="locationPlaceholder" &&
+key!=="statusPlaceholder"
+){
 
-    });
+changeText(key,t[key]);
 
-    document.getElementById("name")
-      .placeholder = t.namePlaceholder;
+}
 
-    document.getElementById("village")
-      .placeholder = t.villagePlaceholder;
+});
 
-    document.getElementById("description")
-      .placeholder = t.descriptionPlaceholder;
 
-    document.getElementById("location")
-      .placeholder = t.locationPlaceholder;
+document.getElementById("name").placeholder=
+t.namePlaceholder;
 
-    document.getElementById("statusId")
-      .placeholder = "উদাহৰণ: KJS-2026-12345";
-    </script>
+document.getElementById("village").placeholder=
+t.villagePlaceholder;
+
+document.getElementById("description").placeholder=
+t.descriptionPlaceholder;
+
+document.getElementById("location").placeholder=
+t.locationPlaceholder;
+
+document.getElementById("statusId").placeholder=
+t.statusPlaceholder;
+
+}
+
+
+function goToReport(){
+
+document.getElementById("report").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function selectCategory(category){
+
+document.getElementById("category").value=category;
+
+document.getElementById("report").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function submitComplaint(){
+
+const name=
+document.getElementById("name").value.trim();
+
+const village=
+document.getElementById("village").value.trim();
+
+const category=
+document.getElementById("category").value;
+
+const description=
+document.getElementById("description").value.trim();
+
+const location=
+document.getElementById("location").value.trim();
+
+const result=
+document.getElementById("complaintResult");
+
+
+if(
+!name ||
+!village ||
+!category ||
+!description ||
+!location
+){
+
+result.style.display="block";
+
+result.textContent=
+currentLanguage==="as"
+?
+"অনুগ্ৰহ কৰি সকলো তথ্য পূৰণ কৰক।"
+:
+"Please fill in all the fields.";
+
+return;
+
+}
+
+
+const id=
+"KJS-"+
+new Date().getFullYear()+
+"-"+
+Math.floor(10000+Math.random()*90000);
+
+
+document.getElementById("statusId").value=id;
+
+
+result.style.display="block";
+
+result.textContent=
+currentLanguage==="as"
+?
+"অভিযোগ সফলভাৱে দাখিল কৰা হৈছে। আপোনাৰ Complaint ID: "+id
+:
+"Complaint submitted successfully. Your Complaint ID: "+id;
+
+}
+
+
+function checkStatus(){
+
+const id=
+document.getElementById("statusId").value.trim();
+
+const result=
+document.getElementById("statusResult");
+
+
+if(!id){
+
+result.textContent=
+currentLanguage==="as"
+?
+"অনুগ্ৰহ কৰি Complaint ID দিয়ক।"
+:
+"Please enter your Complaint ID.";
+
+return;
+
+}
+
+
+result.textContent=
+currentLanguage==="as"
+?
+"আপোনাৰ অভিযোগ গ্ৰহণ কৰা হৈছে। বৰ্তমান স্থিতি: পৰীক্ষাধীন।"
+:
+"Your complaint has been received. Current status: Under Review.";
+
+}
+
+</script>
+
 </body>
 </html>
-    
-
- 
