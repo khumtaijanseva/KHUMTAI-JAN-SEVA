@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHUMTAI JAN SEVA</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f4f7f5;
+  color:#17231c;
+}
+
+header{
+  background:linear-gradient(135deg,#075e3b,#0b8f58);
+  color:white;
+  padding:18px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:bold;
+}
+
+.logo small{
+  display:block;
+  font-size:11px;
+  font-weight:normal;
+  margin-top:3px;
+}
+
+#languageBtn{
+  border:0;
+  cursor:pointer;
+  background:white;
+  color:#075e3b;
+  padding:9px 15px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+.hero{
+  background:white;
+  padding:55px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  color:#075e3b;
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  max-width:750px;
+  margin:auto;
+  line-height:1.7;
+  color:#555;
+}
+
+.hero button{
+  margin-top:25px;
+  background:#075e3b;
+  color:white;
+  border:0;
+  padding:13px 22px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+.section-title{
+  text-align:center;
+  color:#075e3b;
+  margin-bottom:25px;
+  font-size:28px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+
+.service{
+  background:white;
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:.2s;
+}
+
+.service:hover{
+  transform:translateY(-3px);
+  border-color:#0b8f58;
+}
+
+.service h3{
+  color:#075e3b;
+  margin-bottom:10px;
+}
+
+.service p{
+  color:#666;
+  line-height:1.5;
+  font-size:14px;
+}
+
+.report{
+  background:white;
+  margin-top:35px;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.form-group{
+  margin-bottom:16px;
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:bold;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#075e3b;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.submit{
+  width:100%;
+  padding:13px;
+  background:#075e3b;
+  color:white;
+  border:0;
+  border-radius:7px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.submit:hover{
+  background:#064b30;
+}
+
+.result{
+  margin-top:15px;
+  padding:12px;
+  border-radius:7px;
+  background:#e8f6ee;
+  color:#075e3b;
+  display:none;
+}
+
+.status-box{
+  background:white;
+  margin-top:25px;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.status-row{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.status-row input{
+  flex:1;
+}
+
+.status-row button{
+  padding:12px 20px;
+  background:#075e3b;
+  color:white;
+  border:0;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.status-result{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.emergency{
+  margin-top:25px;
+  background:#fff3f3;
+  border-left:5px solid #d62828;
+  padding:20px;
+  border-radius:8px;
+}
+
+footer{
+  margin-top:40px;
+  background:#075e3b;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .nav{
+    flex-direction:column;
+  }
+
+  .status-row{
+    flex-direction:column;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+<span id="logoText">KHUMTAI JAN SEVA</span>
+<small id="logoSub">Public Service & Complaint Portal</small>
+</div>
+
+<button id="languageBtn" type="button" onclick="toggleLanguage()">
+অসমীয়া
+</button>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1 id="heroTitle">KHUMTAI JAN SEVA</h1>
+
+<p id="heroText">
+A public service portal for the people of Khumtai Constituency.
+Report cleanliness problems, drinking water issues, bad roads,
+school-related problems, crime and other public inconveniences.
+</p>
+
+<button type="button" onclick="goToReport()" id="heroBtn">
+Report a Problem
+</button>
+
+</section>
+
+
+<section class="container">
+
+<h2 class="section-title" id="servicesTitle">
+Public Problems
+</h2>
+
+
+<div class="services">
+
+
+<div class="service" onclick="selectCategory('Cleanliness')">
+
+<h3 id="cleanTitle">Cleanliness</h3>
+
+<p id="cleanText">
+Report garbage, dirty areas, drainage and sanitation problems.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Drinking Water')">
+
+<h3 id="waterTitle">Drinking Water</h3>
+
+<p id="waterText">
+Report problems related to drinking water supply and availability.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Road Condition')">
+
+<h3 id="roadTitle">Road Condition</h3>
+
+<p id="roadText">
+Report damaged roads, potholes, bridges or dangerous road conditions.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('School')">
+
+<h3 id="schoolTitle">School</h3>
+
+<p id="schoolText">
+Report problems affecting schools and students.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Crime & Safety')">
+
+<h3 id="crimeTitle">Crime & Safety</h3>
+
+<p id="crimeText">
+Report public safety concerns and other serious local issues.
+</p>
+
+</div>
+
+
+<div class="service" onclick="selectCategory('Other Public Issue')">
+
+<h3 id="otherTitle">Other Public Issue</h3>
+
+<p id="otherText">
+Report any other problem causing inconvenience to the public.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="report" id="report">
+
+<h2 id="formTitle">Submit a Complaint</h2>
+
+
+<div class="form-group">
+
+<label id="nameLabel" for="name">
+Your Name
+</label>
+
+<input
+id="name"
+type="text"
+placeholder="Enter your name">
+
+</div>
+
+
+<div class="form-group">
+
+<label id="villageLabel" for="village">
+Village / Locality
+</label>
+
+<input
+id="village"
+type="text"
+placeholder="Enter village or locality">
+
+</div>
+
+
+<div class="form-group">
+
+<label id="categoryLabel" for="category">
+Problem Category
+</label>
+
+<select id="category">
+
+<option value="">
+Select a category
+</option>
+
+<option value="Cleanliness">
+Cleanliness
+</option>
+
+<option value="Drinking Water">
+Drinking Water
+</option>
+
+<option value="Road Condition">
+Road Condition
+</option>
+
+<option value="School">
+School
+</option>
+
+<option value="Crime & Safety">
+Crime & Safety
+</option>
+
+<option value="Other Public Issue">
+Other Public Issue
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label id="descriptionLabel" for="description">
+Describe the Problem
+</label>
+
+<textarea
+id="description"
+placeholder="Describe the problem clearly">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label id="locationLabel" for="location">
+Location / Landmark
+</label>
+
+<input
+id="location"
+type="text"
+placeholder="Enter the location or nearby landmark">
+
+</div>
+
+
+<button
+class="submit"
+id="submitBtn"
+type="button"
+onclick="submitComplaint()">
+
+Submit Complaint
+
+</button>
+
+
+<div
+class="result"
+id="complaintResult">
+</div>
+
+
+</div>
+
+
+<div class="status-box">
+
+<h2 id="statusTitle">
+Check Complaint Status
+</h2>
+
+<p id="statusText">
+Enter your Complaint ID to check its current status.
+</p>
+
+
+<div class="status-row">
+
+<input
+id="statusId"
+type="text"
+placeholder="Example: KJS-2026-12345">
+
+
+<button
+type="button"
+onclick="checkStatus()"
+id="statusBtn">
+
+Check
+
+</button>
+
+</div>
+
+
+<div
+class="status-result"
+id="statusResult">
+</div>
+
+</div>
+
+
+<div class="emergency">
+
+<h3 id="emergencyTitle">
+Emergency Services
+</h3>
+
+<p id="emergencyText">
+For immediate danger or emergencies, contact the appropriate
+emergency service directly.
+</p>
+
+</div>
+
+
+</section>
+
+
+<footer>
+
+<p id="footerText">
+KHUMTAI JAN SEVA — Service for the people of Khumtai Constituency
+</p>
+
+</footer>
+
+
+<script>
+
+let currentLanguage="en";
+
+
+const translations={
+
+en:{
+
+logoText:"KHUMTAI JAN SEVA",
+
+logoSub:"Public Service & Complaint Portal",
+
+languageBtn:"অসমীয়া",
+
+heroTitle:"KHUMTAI JAN SEVA",
+
+heroText:"A public service portal for the people of Khumtai Constituency. Report cleanliness problems, drinking water issues, bad roads, school-related problems, crime and other public inconveniences.",
+
+heroBtn:"Report a Problem",
+
+servicesTitle:"Public Problems",
+
+cleanTitle:"Cleanliness",
+
+cleanText:"Report garbage, dirty areas, drainage and sanitation problems.",
+
+waterTitle:"Drinking Water",
+
+waterText:"Report problems related to drinking water supply and availability.",
+
+roadTitle:"Road Condition",
+
+roadText:"Report damaged roads, potholes, bridges or dangerous road conditions.",
+
+schoolTitle:"School",
+
+schoolText:"Report problems affecting schools and students.",
+
+crimeTitle:"Crime & Safety",
+
+crimeText:"Report public safety concerns and other serious local issues.",
+
+otherTitle:"Other Public Issue",
+
+otherText:"Report any other problem causing inconvenience to the public.",
+
+formTitle:"Submit a Complaint",
+
+nameLabel:"Your Name",
+
+villageLabel:"Village / Locality",
+
+categoryLabel:"Problem Category",
+
+descriptionLabel:"Describe the Problem",
+
+locationLabel:"Location / Landmark",
+
+submitBtn:"Submit Complaint",
+
+statusTitle:"Check Complaint Status",
+
+statusText:"Enter your Complaint ID to check its current status.",
+
+statusBtn:"Check",
+
+emergencyTitle:"Emergency Services",
+
+emergencyText:"For immediate danger or emergencies, contact the appropriate emergency service directly.",
+
+footerText:"KHUMTAI JAN SEVA — Service for the people of Khumtai Constituency",
+
+namePlaceholder:"Enter your name",
+
+villagePlaceholder:"Enter village or locality",
+
+descriptionPlaceholder:"Describe the problem clearly",
+
+locationPlaceholder:"Enter the location or nearby landmark",
+
+statusPlaceholder:"Example: KJS-2026-12345"
+
+},
+
+
+as:{
+
+logoText:"খুমটাই জন সেৱা",
+
+logoSub:"জনসেৱা আৰু অভিযোগ প'ৰ্টেল",
+
+languageBtn:"English",
+
+heroTitle:"খুমটাই জন সেৱা",
+
+heroText:"খুমটাই সমষ্টিৰ জনসাধাৰণৰ বাবে জনসেৱা প'ৰ্টেল। পৰিষ্কাৰ-পৰিচ্ছন্নতা, খোৱাপানী, ৰাস্তা, বিদ্যালয়, অপৰাধ আৰু অন্যান্য ৰাজহুৱা সমস্যাৰ বিষয়ে অভিযোগ দাখিল কৰক।",
+
+heroBtn:"সমস্যা জনাওক",
+
+servicesTitle:"জনসাধাৰণৰ সমস্যা",
+
+cleanTitle:"পৰিষ্কাৰ-পৰিচ্ছন্নতা",
+
+cleanText:"আৱৰ্জনা, লেতেৰা ঠাই, নলা-নৰ্দমা আৰু পৰিষ্কাৰ-পৰিচ্ছন্নতাৰ সমস্যা জনাওক।",
+
+waterTitle:"খোৱাপানী",
+
+waterText:"খোৱাপানীৰ যোগান বা উপলব্ধতাৰ সমস্যাৰ বিষয়ে জনাওক।",
+
+roadTitle:"ৰাস্তাৰ অৱস্থা",
+
+roadText:"বেয়া ৰাস্তা, গাঁত, দলং বা বিপদজনক পথৰ সমস্যাৰ বিষয়ে জনাওক।",
+
+schoolTitle:"বিদ্যালয়",
+
+schoolText:"বিদ্যালয় আৰু ছাত্ৰ-ছাত্ৰীৰ সৈতে জড়িত সমস্যাৰ বিষয়ে জনাওক।",
+
+crimeTitle:"অপৰাধ আৰু নিৰাপত্তা",
+
+crimeText:"জনসাধাৰণৰ নিৰাপত্তাৰ সমস্যা আৰু গুৰুত্বপূৰ্ণ স্থানীয় বিষয়ৰ বিষয়ে জনাওক।",
+
+otherTitle:"অন্যান্য ৰাজহুৱা সমস্যা",
+
+otherText:"জনসাধাৰণৰ অসুবিধাৰ সৃষ্টি কৰা আন যিকোনো সমস্যাৰ বিষয়ে জনাওক।",
+
+formTitle:"অভিযোগ দাখিল কৰক",
+
+nameLabel:"আপোনাৰ নাম",
+
+villageLabel:"গাঁও / অঞ্চল",
+
+categoryLabel:"সমস্যাৰ শ্ৰেণী",
+
+descriptionLabel:"সমস্যাটো বৰ্ণনা কৰক",
+
+locationLabel:"স্থান / চিনাক্ত স্থান",
+
+submitBtn:"অভিযোগ দাখিল কৰক",
+
+statusTitle:"অভিযোগৰ স্থিতি পৰীক্ষা কৰক",
+
+statusText:"আপোনাৰ অভিযোগৰ বৰ্তমান স্থিতি চাবলৈ Complaint ID দিয়ক।",
+
+statusBtn:"পৰীক্ষা কৰক",
+
+emergencyTitle:"জৰুৰীকালীন সেৱা",
+
+emergencyText:"জৰুৰী বিপদ বা তৎকালীন পৰিস্থিতিৰ ক্ষেত্ৰত সংশ্লিষ্ট জৰুৰীকালীন সেৱাৰ সৈতে পোনপটীয়াকৈ যোগাযোগ কৰক।",
+
+footerText:"খুমটাই জন সেৱা — খুমটাই সমষ্টিৰ জনসাধাৰণৰ সেৱাত",
+
+namePlaceholder:"আপোনাৰ নাম লিখক",
+
+villagePlaceholder:"গাঁও বা অঞ্চলৰ নাম লিখক",
+
+descriptionPlaceholder:"সমস্যাটো স্পষ্টভাৱে বৰ্ণনা কৰক",
+
+locationPlaceholder:"স্থান বা ওচৰৰ চিনাক্ত স্থান লিখক",
+
+statusPlaceholder:"উদাহৰণ: KJS-2026-12345"
+
+}
+
+};
+
+
+function changeText(id,text){
+
+const element=document.getElementById(id);
+
+if(element){
+
+element.textContent=text;
+
+}
+
+}
+
+
+function toggleLanguage(){
+
+currentLanguage =
+currentLanguage==="en"
+? "as"
+: "en";
+
+
+const t=translations[currentLanguage];
+
+
+Object.keys(t).forEach(function(key){
+
+if(
+key!=="namePlaceholder" &&
+key!=="villagePlaceholder" &&
+key!=="descriptionPlaceholder" &&
+key!=="locationPlaceholder" &&
+key!=="statusPlaceholder"
+){
+
+changeText(key,t[key]);
+
+}
+
+});
+
+
+document.getElementById("name").placeholder=
+t.namePlaceholder;
+
+document.getElementById("village").placeholder=
+t.villagePlaceholder;
+
+document.getElementById("description").placeholder=
+t.descriptionPlaceholder;
+
+document.getElementById("location").placeholder=
+t.locationPlaceholder;
+
+document.getElementById("statusId").placeholder=
+t.statusPlaceholder;
+
+}
+
+
+function goToReport(){
+
+document.getElementById("report").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function selectCategory(category){
+
+document.getElementById("category").value=category;
+
+document.getElementById("report").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function submitComplaint(){
+
+const name=
+document.getElementById("name").value.trim();
+
+const village=
+document.getElementById("village").value.trim();
+
+const category=
+document.getElementById("category").value;
+
+const description=
+document.getElementById("description").value.trim();
+
+const location=
+document.getElementById("location").value.trim();
+
+const result=
+document.getElementById("complaintResult");
+
+
+if(
+!name ||
+!village ||
+!category ||
+!description ||
+!location
+){
+
+result.style.display="block";
+
+result.textContent=
+currentLanguage==="as"
+?
+"অনুগ্ৰহ কৰি সকলো তথ্য পূৰণ কৰক।"
+:
+"Please fill in all the fields.";
+
+return;
+
+}
+
+
+const id=
+"KJS-"+
+new Date().getFullYear()+
+"-"+
+Math.floor(10000+Math.random()*90000);
+
+
+document.getElementById("statusId").value=id;
+
+
+result.style.display="block";
+
+result.textContent=
+currentLanguage==="as"
+?
+"অভিযোগ সফলভাৱে দাখিল কৰা হৈছে। আপোনাৰ Complaint ID: "+id
+:
+"Complaint submitted successfully. Your Complaint ID: "+id;
+
+}
+
+
+function checkStatus(){
+
+const id=
+document.getElementById("statusId").value.trim();
+
+const result=
+document.getElementById("statusResult");
+
+
+if(!id){
+
+result.textContent=
+currentLanguage==="as"
+?
+"অনুগ্ৰহ কৰি Complaint ID দিয়ক।"
+:
+"Please enter your Complaint ID.";
+
+return;
+
+}
+
+
+result.textContent=
+currentLanguage==="as"
+?
+"আপোনাৰ অভিযোগ গ্ৰহণ কৰা হৈছে। বৰ্তমান স্থিতি: পৰীক্ষাধীন।"
+:
+"Your complaint has been received. Current status: Under Review.";
+
+}
+
+</script>
+
+</body>
+</html>
