@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khumtai Jan Seva - Admin</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7f5;
+  color:#17231c;
+}
+header{
+  background:linear-gradient(135deg,#075e3b,#0b8f5a);
+  color:white;
+  padding:22px 5%;
+}
+header h1{margin:0;font-size:25px}
+header p{margin:6px 0 0}
+
+.container{
+  max-width:1100px;
+  margin:25px auto;
+  padding:0 16px;
+}
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:25px;
+  margin-bottom:20px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+input,select,button{
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+button{
+  background:#08643f;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{background:#064b30}
+
+.hidden{display:none}
+
+.report{
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:18px;
+  margin:15px 0;
+}
+
+.report h3{
+  color:#08643f;
+  margin-top:0;
+}
+
+.label{
+  font-weight:bold;
+}
+
+.status{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#e6f5ed;
+  color:#075e3b;
+  font-weight:bold;
+}
+
+.logout{
+  background:#b42318;
+  margin-top:10px;
+}
+
+.message{
+  padding:12px;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+.error{
+  background:#ffe7e7;
+  color:#9b1c1c;
+}
+
+.success{
+  background:#e5f6ec;
+  color:#075e3b;
+}
+
+#count{
+  font-size:20px;
+  font-weight:bold;
+  color:#08643f;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>KHUMTAI JAN SEVA</h1>
+  <p>Administration Dashboard</p>
+</header>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div id="loginBox" class="card">
+  <h2>Admin Login</h2>
+
+  <input id="username" type="text" placeholder="Username">
+
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <div id="loginMessage"></div>
+</div>
+
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+
+  <div class="card">
+    <h2>Complaint Dashboard</h2>
+
+    <p>
+      Total complaints:
+      <span id="count">0</span>
+    </p>
+
+    <button onclick="loadReports()">Refresh Complaints</button>
+
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="card">
+    <h2>Complaints</h2>
+    <div id="reports">Loading...</div>
+  </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let loggedIn = false;
+
+
+/* LOGIN */
+
+async function login(){
+
+  const username =
+    document.getElementById("username").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const message =
+    document.getElementById("loginMessage");
+
+  if(!username || !password){
+    message.innerHTML =
+      '<div class="message error">Enter username and password.</div>';
+    return;
+  }
+
+  try{
+
+    const response = await fetch("/api/login",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        username:username,
+        password:password
+      })
+    });
+
+    const data = await response.json();
+
+    if(!response.ok){
+      throw new Error(data.error || "Login failed");
+    }
+
+    loggedIn = true;
+
+    document.getElementById("loginBox")
+      .classList.add("hidden");
+
+    document.getElementById("dashboard")
+      .classList.remove("hidden");
+
+    loadReports();
+
+  }catch(error){
+
+    message.innerHTML =
+      '<div class="message error">'+
+      error.message+
+      '</div>';
+
+  }
+
+}
+
+
+/* LOAD COMPLAINTS */
+
+async function loadReports(){
+
+  const reportsBox =
+    document.getElementById("reports");
+
+  reportsBox.innerHTML = "Loading...";
+
+  try{
+
+    const response =
+      await fetch("/api/reports");
+
+    if(!response.ok)
+      throw new Error("Could not load complaints.");
+
+    const reports =
+      await response.json();
+
+    document.getElementById("count")
+      .textContent = reports.length;
+
+    if(reports.length === 0){
+
+      reportsBox.innerHTML =
+        "<p>No complaints received yet.</p>";
+
+      return;
+    }
+
+    reportsBox.innerHTML =
+      reports.map((r,index)=>`
+
+      <div class="report">
+
+        <h3>Complaint ${index+1}</h3>
+
+        <p>
+          <span class="label">Complaint ID:</span><br>
+          ${escapeHTML(r.id || "N/A")}
+        </p>
+
+        <p>
+          <span class="label">Category:</span><br>
+          ${escapeHTML(r.category || "N/A")}
+        </p>
+
+        <p>
+          <span class="label">Description:</span><br>
+          ${escapeHTML(r.description || r.problem || "N/A")}
+        </p>
+
+        <p>
+          <span class="label">Location:</span><br>
+          ${escapeHTML(r.location || r.landmark || "N/A")}
+        </p>
+
+        <p>
+          <span class="label">Current Status:</span><br>
+          <span class="status">
+            ${escapeHTML(r.status || "Submitted")}
+          </span>
+        </p>
+
+        <label class="label">
+          Change Status:
+        </label>
+
+        <select id="status-${index}">
+
+          <option value="Submitted"
+            ${r.status==="Submitted"?"selected":""}>
+            Submitted
+          </option>
+
+          <option value="Under Review"
+            ${r.status==="Under Review"?"selected":""}>
+            Under Review
+          </option>
+
+          <option value="In Progress"
+            ${r.status==="In Progress"?"selected":""}>
+            In Progress
+          </option>
+
+          <option value="Resolved"
+            ${r.status==="Resolved"?"selected":""}>
+            Resolved
+          </option>
+
+          <option value="Rejected"
+            ${r.status==="Rejected"?"selected":""}>
+            Rejected
+          </option>
+
+        </select>
+
+        <button
+          onclick='updateStatus("${r.id}",${index})'>
+          Update Status
+        </button>
+
+        <div id="msg-${index}"></div>
+
+      </div>
+
+      `).join("");
+
+  }catch(error){
+
+    reportsBox.innerHTML =
+      '<div class="message error">'+
+      error.message+
+      '</div>';
+
+  }
+
+}
+
+
+/* UPDATE STATUS */
+
+async function updateStatus(id,index){
+
+  const status =
+    document.getElementById("status-"+index).value;
+
+  const msg =
+    document.getElementById("msg-"+index);
+
+  try{
+
+    const response = await fetch(
+      "/api/reports/"+encodeURIComponent(id),
+      {
+        method:"PATCH",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          status:status
+        })
+      }
+    );
+
+    const data =
+      await response.json();
+
+    if(!response.ok){
+      throw new Error(data.error || "Update failed");
+    }
+
+    msg.innerHTML =
+      '<div class="message success">'+
+      'Status updated successfully.'+
+      '</div>';
+
+    setTimeout(loadReports,800);
+
+  }catch(error){
+
+    msg.innerHTML =
+      '<div class="message error">'+
+      error.message+
+      '</div>';
+
+  }
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+  loggedIn = false;
+
+  document.getElementById("dashboard")
+    .classList.add("hidden");
+
+  document.getElementById("loginBox")
+    .classList.remove("hidden");
+
+  document.getElementById("username").value="";
+  document.getElementById("password").value="";
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
